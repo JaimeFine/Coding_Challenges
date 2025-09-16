@@ -32,6 +32,17 @@ public:
 	length++;
     }
 
+    void remove(int pos) {
+	if (pos < 1 || pos > length) {
+	    std::cout << "Invalid position!" << std::endl;
+	    return;
+	}
+	for (int i = pos - 1; i< length - 1; i++) {
+	    data[i] = data[i + 1];
+	}
+	length--;
+    }
+
     int search(int value) {
 	for (int i = 0; i < length; i++) {
 	    if (data[i] == value)
@@ -60,7 +71,7 @@ int main() {
     list.remove(2);
     list.display();
 
-    int post = list.search(30);
+    int pos = list.search(30);
     if (pos != -1)
 	std::cout << "Found at position " << pos << std::endl;
     else
