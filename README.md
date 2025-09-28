@@ -1,31 +1,28 @@
 # DSA with C++
 
-This is a repository about Data Structure and Algorithm with C++, consist of many mini-projects that I came up afterclass and by surfing the idea on the Internet. The code might not be perfect, but I hope it will be a useful template and example for anyone who is studying DSA course to enjoy!
+This repository explores **Data Structures and Algorithms in C++**, featuring a collection of mini-projects inspired by classroom discussions and ideas discovered online. While the code may not be perfect, I hope it serves as a helpful reference and learning resource for anyone studying DSA — and makes the journey a bit more enjoyable!
 
------
+---
 
-## 📂 Project structure
+## 📂 Project Structure
 
 ```text
 .
 ├── Tutorials
-│   ├── LinearLists.cpp
-│   └── LinkedLists.cpp     
-└── Rashambo
+│   ├── LinearLists.cpp       # Examples of linear data structures
+│   └── LinkedLists.cpp       # Implementation of linked lists
+└── Rashambo                  # A game example
 ```
 
------
+---
 
-## 🚀 Getting started
+## 🧪 Compiling and Running
 
-### Running the Program
+To compile and run any `.cpp` file in this project, use the following commands:
 
-To run the program, use the cargo run command followed by the arguments.
-
-```Bash
-
+```bash
 g++ sourcefilename.cpp -o exefilename
-
 ./exefilename
-
 ```
+
+Replace `sourcefilename.cpp` with the file you want to run (e.g., `LinkedLists.cpp`), and `exefilename` with your desired output name.
