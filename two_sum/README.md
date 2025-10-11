@@ -42,4 +42,7 @@ Constraints:
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
-**I spent half an hour on this challenge...**
+
+
+
+*I spent half an hour on this challenge...*
