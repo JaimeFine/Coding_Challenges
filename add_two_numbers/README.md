@@ -35,4 +35,6 @@ Constraints:
 - 0 <= Node.val <= 9
 - It is guaranteed that the list represents a number that does not have leading zeros.
 
-**I spent about an hour an this challenge...**
+-----
+
+*I spent about an hour an this challenge...*
