@@ -36,6 +36,10 @@ void arg_parse(std::string input, std::vector<int>& container) {
     }
 }
 
+void calculate(std::vector<int> container) {
+    // --snip--
+}
+
 int main() {
     std::string input;
     std::vector<int> container;
