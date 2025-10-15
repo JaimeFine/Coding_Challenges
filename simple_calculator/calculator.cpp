@@ -3,14 +3,13 @@
 #include <cstdlib>
 #include <vector>
 
-std::vector<int> arg_parse(std::string input) {
+void arg_parse(std::string input, std::vector<int>& container) {
     bool isNumber = false;
     int current = 0;
     
     // clear(input);
 
     const char* str = input.c_str();
-    std::vector<int> container;
 
     for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] >= '0' && str[i] <= '9') {
@@ -35,16 +34,18 @@ std::vector<int> arg_parse(std::string input) {
     if (isNumber) {
         container.push_back(current);
     }
-
-    return container;
 }
 
 int main() {
     std::string input;
+    std::vector<int> container;
+    container.reserve(1000);
 
     std::cout << "Please enter your formula, it must not contain space!\n";
     std::cin >> input;
-    arg_parse(input);
+
+    arg_parse(input, container);
+    calculate(container);
 
     return 0;
 }
