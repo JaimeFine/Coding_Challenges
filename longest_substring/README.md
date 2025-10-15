@@ -35,3 +35,7 @@ Given a string s, find the length of the longest substring without duplicate cha
 
 - 0 <= s.length <= 5 * 104
 - s consists of English letters, digits, symbols and spaces.
+
+-----
+
+*I spent about half an hour on this challenge...*
