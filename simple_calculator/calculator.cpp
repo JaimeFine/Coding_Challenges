@@ -1,13 +1,17 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <cstdlib>
 
 int arg_parse(std::string input) {
     bool isNumber = false;
     int count = 0;
     int current = 0;
+    
+    // clear(input);
+
     const char* str = input.c_str();
     int container[250];
+
     for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] >= '0' && str[i] <= '9') {
             current = current * 10 + (str[i] - '0');
@@ -15,10 +19,16 @@ int arg_parse(std::string input) {
         } else if (
             str[i] == '-' || str[i] == '+' || str[i] == '*' || str[i] == '/'
         ) {
-            isNumber = false;
-            current = 0;
-            container[count++] = current;
+            if (isNumber) {
+                container[count++] = current;
+                current = 0;
+                isNumber = false;
+            }
             container[count++] = str[i];
+        } else {
+            std::cerr << "character '" << static_cast<char>(str[i]) 
+            << "' not recognized!" << std::endl;
+            exit(-1);
         }
     }
 
@@ -27,7 +37,13 @@ int arg_parse(std::string input) {
     }
 
     for (int i = 0; i < count; ++i) {
-        std::cout << container[i] << " ";
+        if (
+            container[i] == '-' || container[i] == '+' ||
+            container[i] == '*' || container[i] == '/'
+        ) {
+            std::cout << static_cast<char>(container[i]) << " ";
+        } else
+            std::cout << container[i] << " ";
     }
 
     return 0;
