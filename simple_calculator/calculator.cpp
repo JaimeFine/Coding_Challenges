@@ -1,16 +1,16 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <vector>
 
-int arg_parse(std::string input) {
+std::vector<int> arg_parse(std::string input) {
     bool isNumber = false;
-    int count = 0;
     int current = 0;
     
     // clear(input);
 
     const char* str = input.c_str();
-    int container[250];
+    std::vector<int> container;
 
     for (int i = 0; str[i] != '\0'; ++i) {
         if (str[i] >= '0' && str[i] <= '9') {
@@ -20,11 +20,11 @@ int arg_parse(std::string input) {
             str[i] == '-' || str[i] == '+' || str[i] == '*' || str[i] == '/'
         ) {
             if (isNumber) {
-                container[count++] = current;
+                container.push_back(current);
                 current = 0;
                 isNumber = false;
             }
-            container[count++] = str[i];
+            container.push_back(str[i]);
         } else {
             std::cerr << "character '" << static_cast<char>(str[i]) 
             << "' not recognized!" << std::endl;
@@ -33,24 +33,16 @@ int arg_parse(std::string input) {
     }
 
     if (isNumber) {
-        container[count++] = current;
+        container.push_back(current);
     }
 
-    for (int i = 0; i < count; ++i) {
-        if (
-            container[i] == '-' || container[i] == '+' ||
-            container[i] == '*' || container[i] == '/'
-        ) {
-            std::cout << static_cast<char>(container[i]) << " ";
-        } else
-            std::cout << container[i] << " ";
-    }
-
-    return 0;
+    return container;
 }
 
 int main() {
     std::string input;
+
+    std::cout << "Please enter your formula, it must not contain space!\n";
     std::cin >> input;
     arg_parse(input);
 
