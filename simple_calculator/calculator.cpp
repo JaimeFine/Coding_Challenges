@@ -36,8 +36,30 @@ void arg_parse(std::string input, std::vector<int>& container) {
     }
 }
 
-void calculate(std::vector<int> container) {
-    // --snip--
+void calculate(std::vector<int>& container) {
+    for (int i = 0; i < container.size(); ++i) {
+        if (container[i] == '*' || container[i] == '/') {
+            int left = container[i - 1];
+            int right = container[i + 1];
+            int result = (container[i] == '*') ? left * right : left / right;
+
+            container[i - 1] = result;
+            container.erase(container.begin() + i, container.begin() + i + 2);
+            i -= 1;
+        }
+    }
+
+    for (int i = 0; i < container.size(); ++i) {
+        if (container[i] == '+' || container[i] == '-') {
+            int left = container[i - 1];
+            int right = container[i + 1];
+            int result = (container[i] == '+') ? left + right : left - right;
+
+            container[i - 1] = result;
+            container.erase(container.begin() + i, container.begin() + i + 2);
+            i -= 1;
+        }
+    }
 }
 
 int main() {
@@ -50,6 +72,8 @@ int main() {
 
     arg_parse(input, container);
     calculate(container);
+
+    std::cout << container[0] << std::endl;
 
     return 0;
 }
