@@ -6,14 +6,12 @@ class Solution {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         int med = 0;
-        std::vector<double> merged;
-        merged.reserve(nums1.size() + nums2.size());
 
         while (nums1.size() > 2 && nums2.size() > 2) {
             int med1, med2;
-            med1 = if (nums1.size() % 2 == 0) ? nums1[(nums1.size() - 1) / 2] : nums1[nums1.size() / 2];
-            med2 = if (nums2.size() % 2 == 0) ? nums2[(nums2.size() - 1) / 2] : nums2[nums2.size() / 2];
-            if (med1 < med1) {
+            med1 = (nums1.size() % 2 == 0) ? nums1[(nums1.size() - 1) / 2] : nums1[nums1.size() / 2];
+            med2 = (nums2.size() % 2 == 0) ? nums2[(nums2.size() - 1) / 2] : nums2[nums2.size() / 2];
+            if (med1 < med2) {
                 nums1.assign(nums1.begin() + med1, nums1.end());
                 nums2.assign(nums2.begin(), nums2.begin() + med1);
             } else {
@@ -22,9 +20,9 @@ public:
             }
         }
 
-        merged = nums1.insert(nums1.end(), nums2.begin(), nums2.end());
-        std::sort(merged.begin(), merged.end());
-        med = if (merged.size() % 2 == 0) ? merged[(merged.size() - 1) / 2] : merged[merged.size() / 2];
+        nums1.insert(nums1.end(), nums2.begin(), nums2.end());
+        std::sort(nums1.begin(), nums1.end());
+        med = (nums1.size() % 2 == 0) ? nums1[(nums1.size() - 1) / 2] : nums1[nums1.size() / 2];
 
         return med;
     }
