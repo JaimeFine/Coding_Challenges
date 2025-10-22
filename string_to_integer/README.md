@@ -23,8 +23,8 @@ Return the integer as the final result.
 >
 > Explanation:
 >
->The underlined characters are what is read in and the caret is the current reader position.
-
+> The underlined characters are what is read in and the caret is the current reader position.
+>
 > Step 1: "42" (no characters read because there is no leading whitespace)
 > 
 > Step 2: "42" (no characters read because there is neither a '-' nor '+')
@@ -87,3 +87,7 @@ Return the integer as the final result.
 
 - 0 <= s.length <= 200
 - s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'.
+
+---
+
+*I spent about 20 mins on this quiz...*
