@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        long long result = 0;
+        int rep = x;
+
+        if (x < 0) {
+            return false;
+        }
+
+        for (int i = 0; rep >= 1; i++) {
+            result = result * 10 + rep % 10;
+            rep = rep / 10;
+        }
+
+        if (result == x)
+            return true;
+
+        return false;
+    }
+};
