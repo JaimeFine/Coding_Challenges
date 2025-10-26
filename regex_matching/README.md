@@ -44,3 +44,7 @@ The matching should cover the **entire** input string (not partial).
 - s contains only lowercase English letters.
 - p contains only lowercase English letters, '.', and '*'.
 - It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
+
+-----
+
+*Sadly, with limited knowledge to the advanced algorithmic technique, I didn't manage to solve it without external assistance...😢*
