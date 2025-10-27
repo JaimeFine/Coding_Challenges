@@ -44,7 +44,37 @@ void arg_parse(std::string input, std::vector<int>& container) {
 }
 
 void bracket(std::vector<int>& container) {
-    for ()
+    for (int end_i = 0; end_i < container.size(); ++end_i) {
+        if (container[end_i] == ')') {
+            int start_i = -1;
+            for (int k = end_i - 1; k >= 0; --k) {
+                if (container[k] == '(') {
+                    start_i = k;
+                    break;
+                }
+            }
+
+            std::vector<int> sub_expr;
+            for (int k = start_i + 1; k < end_i; ++k) {
+                sub_expr.push_back(container[k]);
+            }
+
+            basic_calculate(sub_expr);
+
+            if (sub_expr.size() == 1) {
+                int result = sub_expr[0];
+                
+                container.erase(
+                    container.begin() + start_i, container.begin() + end_i + 1
+                );
+                container.insert(container.begin() + start_i, result);
+                end_i = 0;
+            } else {
+                std::cerr << "Error: Invalid expression..." << std::endl;
+                exit(-1);
+            }
+        }
+    }
 }
 
 void basic_calculate(std::vector<int>& container) {
