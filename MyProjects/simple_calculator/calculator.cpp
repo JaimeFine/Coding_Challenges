@@ -10,8 +10,6 @@ void bracket(std::vector<int>& container);
 void arg_parse(std::string input, std::vector<int>& container) {
     bool isNumber = false;
     int current = 0;
-    
-    // clear(input);
 
     const char* str = input.c_str();
 
@@ -128,7 +126,7 @@ int main() {
     std::vector<int> container;
     container.reserve(1000);
 
-    std::cout << "Please enter your formula, it must not contain space!\n";
+    std::cout << "Please enter your formula:\n";
     std::cin >> input;
 
     arg_parse(input, container);
