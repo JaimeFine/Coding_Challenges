@@ -1,0 +1,18 @@
+Semester 1:
+  C1 Math
+  C3 Programming
+  C6 English
+
+Semester 2:
+  C2 Physics
+  C4 DataStruct
+
+Semester 3:
+  C5 Algorithms
+
+Semester 4:
+  C7 Assembly
+
+Semester 5:
+  C8 ComputerArchitecture
+
